@@ -1,0 +1,53 @@
+<mat-card>
+  <mat-card-title>Cadastro de Produtos</mat-card-title>
+  <mat-card-content>
+    <form #formProduto="ngForm" (ngSubmit)="salvar()" class="form-produto">
+      <mat-form-field appearance="outline">
+        <mat-label>Código</mat-label>
+        <input matInput [(ngModel)]="novoProduto.codigo" name="codigo" required minlength="2" #codigo="ngModel">
+        <mat-error *ngIf="codigo.invalid">Código é obrigatório (mínimo 2 caracteres).</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Descrição</mat-label>
+        <input matInput [(ngModel)]="novoProduto.descricao" name="descricao" required minlength="3" #descricao="ngModel">
+        <mat-error *ngIf="descricao.invalid">Descrição é obrigatória (mínimo 3 caracteres).</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Saldo</mat-label>
+        <input matInput type="number" [(ngModel)]="novoProduto.saldo" name="saldo" required min="0" #saldo="ngModel">
+        <mat-error *ngIf="saldo.invalid">Saldo é obrigatório.</mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="formProduto.invalid">
+        Salvar
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="tabela-card">
+  <mat-card-title>Produtos cadastrados</mat-card-title>
+  <mat-card-content>
+    <table mat-table [dataSource]="produtos" class="mat-elevation-z1">
+      <ng-container matColumnDef="codigo">
+        <th mat-header-cell *matHeaderCellDef>Código</th>
+        <td mat-cell *matCellDef="let produto">{{ produto.codigo }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="descricao">
+        <th mat-header-cell *matHeaderCellDef>Descrição</th>
+        <td mat-cell *matCellDef="let produto">{{ produto.descricao }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="saldo">
+        <th mat-header-cell *matHeaderCellDef>Saldo</th>
+        <td mat-cell *matCellDef="let produto">{{ produto.saldo }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="colunasExibidas"></tr>
+      <tr mat-row *matRowDef="let row; columns: colunasExibidas;"></tr>
+    </table>
+  </mat-card-content>
+</mat-card>

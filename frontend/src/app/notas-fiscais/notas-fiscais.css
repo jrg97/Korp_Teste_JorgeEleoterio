@@ -1,0 +1,29 @@
+.form-nota {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.nota-card {
+  margin-top: 16px;
+}
+
+.acoes-nota {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.erro {
+  background: #fdecea;
+  color: #c0392b;
+  padding: 12px;
+  border-radius: 4px;
+  margin: 16px 0;
+}
+
+table {
+  width: 100%;
+}

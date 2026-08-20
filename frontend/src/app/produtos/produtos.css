@@ -1,0 +1,23 @@
+.campo-erro {
+  color: #c0392b;
+  font-size: 0.85em;
+  display: block;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid #c0392b;
+}
+.form-produto {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.tabela-card {
+  margin-top: 24px;
+}
+
+table {
+  width: 100%;
+}
