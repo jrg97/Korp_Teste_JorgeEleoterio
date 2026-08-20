@@ -20,11 +20,13 @@ public class NotasFiscaisController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<NotaFiscalResponseDto>> Criar(CriarNotaFiscalDto dto)
+    public async Task<ActionResult<NotaFiscalResponseDto>> Criar()
     {
+        var proximoNumero = (await _context.NotasFiscais.MaxAsync(n => (int?)n.Numero) ?? 0) + 1;
+
         var nota = new NotaFiscal
         {
-            Numero = dto.Numero,
+            Numero = proximoNumero,
             Status = StatusNotaFiscal.Aberta
         };
 

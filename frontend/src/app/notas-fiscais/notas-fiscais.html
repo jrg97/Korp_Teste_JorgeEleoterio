@@ -1,14 +1,7 @@
 <mat-card>
   <mat-card-title>Notas Fiscais</mat-card-title>
   <mat-card-content>
-    <form (ngSubmit)="criarNota()" class="form-nota">
-      <mat-form-field appearance="outline">
-        <mat-label>Número</mat-label>
-        <input matInput type="number" [(ngModel)]="novoNumero" name="numero" required>
-      </mat-form-field>
-
-      <button mat-raised-button color="primary" type="submit">Criar Nota</button>
-    </form>
+    <button mat-raised-button color="primary" (click)="criarNota()">Criar Nota</button>
   </mat-card-content>
 </mat-card>
 

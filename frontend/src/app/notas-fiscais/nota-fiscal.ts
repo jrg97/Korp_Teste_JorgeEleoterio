@@ -16,9 +16,9 @@ export class NotaFiscalService {
     return this.http.get<NotaFiscal[]>(this.apiUrl);
   }
 
-  criar(nota: { numero: number }): Observable<NotaFiscal> {
-    return this.http.post<NotaFiscal>(this.apiUrl, nota);
-  }
+  criar(): Observable<NotaFiscal> {
+  return this.http.post<NotaFiscal>(this.apiUrl, {});
+}
 
   adicionarItem(notaId: number, item: { produtoId: number; quantidade: number }): Observable<NotaFiscal> {
     return this.http.post<NotaFiscal>(`${this.apiUrl}/${notaId}/itens`, item);

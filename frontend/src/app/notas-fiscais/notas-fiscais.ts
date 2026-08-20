@@ -46,11 +46,8 @@ export class NotasFiscais implements OnInit {
   }
 
   criarNota(): void {
-    this.notaFiscalService.criar({ numero: this.novoNumero }).subscribe({
-      next: () => {
-        this.novoNumero = 0;
-        this.carregarNotas();
-      },
+    this.notaFiscalService.criar().subscribe({
+      next: () => this.carregarNotas(),
       error: (erro) => console.error('Erro ao criar nota', erro)
     });
   }
